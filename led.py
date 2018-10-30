@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time 
 import sys
+import logging
 from client import Client
 
 server_ip = sys.argv[1]
@@ -28,8 +29,10 @@ while True:
   if button_state ==  True:
         pressed_time = e-s
         if pressed_time >=  CLICK_CONSTANT  :
-                client_handle.send("right")
+		print('Right Click')
+		client_handle.send("right")
         elif ( pressed_time < CLICK_CONSTANT and pressed_time > 0):
+		print('Left Click')
                 client_handle.send("left")
 
         s = time.time() 
