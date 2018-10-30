@@ -11,6 +11,9 @@ GPIO.setup(BUTTON,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 s = e = 0.0
 
+def print_util(content):
+	print content
+
 #when button is pressed  button state is false
 while True:
   button_state =GPIO.input(BUTTON)
@@ -21,9 +24,9 @@ while True:
 
 	pressed_time = e-s
         if pressed_time >=  CLICK_CONSTANT  :
-                print "right click ", pressed_time
+                print_util("right click ")
         elif ( pressed_time < CLICK_CONSTANT and pressed_time > 0):
-                print "left click ",pressed_time
+                print_util("left click ")
 
         s = time.time() 
 
