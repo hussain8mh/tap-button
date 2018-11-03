@@ -24,7 +24,6 @@ try :
 
         print "Command recv ",command
         util.handle_command(command)
-        c.send("Clicked") 
 
 except:
     c.close() 

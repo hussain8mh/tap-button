@@ -1,5 +1,6 @@
 import socket
 import sys
+import logging
                 
 s = socket.socket()          
 
@@ -10,6 +11,6 @@ s.connect((server_ip, port))
 
 command = raw_input("Command ")
 s.send(command)
-print s.recv(1024) 
 
+logging.info("Command " , command , " sent")
 s.close()  
