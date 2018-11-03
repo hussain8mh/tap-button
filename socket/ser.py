@@ -13,16 +13,18 @@ print "socket binded to %s" %(port)
 # put the socket into listening mode 
 s.listen(5)      
 print "socket is listening"            
+c, addr = s.accept()      
+print 'Got connection from', addr 
 
 try :
     while True: 
-    
-        c, addr = s.accept()      
-        print 'Got connection from', addr 
-
         command = c.recv(1024)
-
         print "Command recv ",command
+
+        if command == "close":
+                c.close() 
+                break
+
         util.handle_command(command)
 
 except:
